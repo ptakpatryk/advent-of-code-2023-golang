@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ptakpatryk/advent-of-code-golang/lib"
+	"github.com/ptakpatryk/advent-of-code-2023-golang/lib"
 )
 
 var input, err = os.ReadFile("day_02/input.txt")
@@ -20,23 +20,13 @@ type Game struct {
 }
 
 func (g Game) isWithinLimit() bool {
-	if g.Red > 12 || g.Blue > 14 || g.Green > 13 {
-		return false
-	}
-
-	return true
+  return !(g.Red > 12 || g.Blue > 14 || g.Green > 13)
 }
 
 func (g *Game) mergeIfBigger(round Game) {
 	g.Green = max(g.Green, round.Green)
 	g.Red = max(g.Red, round.Red)
 	g.Blue = max(g.Blue, round.Blue)
-}
-
-var Limit = Game{
-	Red:   12,
-	Green: 13,
-	Blue:  14,
 }
 
 func main() {

@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
-  "github.com/ptakpatryk/advent-of-code-golang/lib"
+  "github.com/ptakpatryk/advent-of-code-2023-golang/lib"
 )
 
 var input, err = os.ReadFile("day_01/input.txt")
