@@ -38,6 +38,22 @@ func partOne(fileInput string) int {
 		races = append(races, Race{t, d})
 	}
 
+	return getWaysToWin(races)
+}
+
+func partTwo(fileInput string) int {
+	time := strings.Split(strings.Split(fileInput, "\n")[0], ":")[1]
+	time = strings.ReplaceAll(time, " ", "")
+	distance := strings.Split(strings.Split(fileInput, "\n")[1], ":")[1]
+	distance = strings.ReplaceAll(distance, " ", "")
+
+	t, _ := strconv.Atoi(time)
+	d, _ := strconv.Atoi(distance)
+
+	return getWaysToWin([]Race{{t, d}})
+}
+
+func getWaysToWin(races []Race) int {
 	var waysToWin []int
 
 	for _, race := range races {
@@ -51,11 +67,11 @@ func partOne(fileInput string) int {
 		waysToWin = append(waysToWin, waysToWinRace)
 	}
 
-  result := 1
-  for _, ways := range waysToWin {
-    result *= ways
-  }
-  
+	result := 1
+	for _, ways := range waysToWin {
+		result *= ways
+	}
+
 	return result
 }
 
@@ -63,8 +79,4 @@ func willBeat(speed int, race Race) bool {
 	distance := speed * (race.time - speed)
 
 	return distance > race.distance
-}
-
-func partTwo(fileInput string) int {
-	return 0
 }
