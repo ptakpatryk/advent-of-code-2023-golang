@@ -58,7 +58,7 @@ func getWaysToWin(races []Race) int {
 
 	for _, race := range races {
 		var waysToWinRace int
-		for i := 0; i <= race.time; i++ {
+		for i := 1; i < race.time; i++ {
 			if willBeat(i, race) {
 				waysToWinRace++
 			}
